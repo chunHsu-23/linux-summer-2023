@@ -48,7 +48,7 @@ static inline void cond_wait(cond_t *cond, mutex_t *mutex)
 
     mutex_lock(mutex);
 
-    fetch_or(&mutex->state, MUTEX_SLEEP, relaxed); /*AAAA*/
+    fetch_or(&mutex->state, MUTEX_SLEEPING, relaxed); /*AAAA*/
 }
 
 static inline void cond_signal(cond_t *cond, mutex_t *mutex)
